@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.hjycommunity.community.mapper.HjyCommunityMapper">
+
+<!--    /**-->
+<!--    * 查询小区列表，且有输入地区时会根据地区进行查询-->
+<!--    * @param hjyCommunity-->
+<!--    * @return-->
+<!--    */-->
+<!--    public List<HjyCommunityDto> queryList (HjyCommunity hjyCommunity);-->
+    <select id="queryList" resultType="com.msb.hjycommunity.community.domain.dto.HjyCommunityDto">
+        SELECT
+        hc.*,
+        sa1.name AS communityProvinceName,
+        sa2.name AS communityCityName,
+        sa3.name AS communityTownName
+        FROM hjy_community hc
+        LEFT JOIN sys_area sa1 ON hc.community_province_code = sa1.`code`
+        LEFT JOIN sys_area sa2 ON hc.community_city_code = sa2.`code`
+        LEFT JOIN sys_area sa3 ON hc.community_town_code = sa3.`code`
+
+        <where>
+            <if test="community.communityName != null and community.communityName != ''">
+                AND hc.community_name LIKE CONCAT('%', #{community.communityName}, '%')
+            </if>
+
+            <if test="community.communityCode != null and community.communityCode != ''">
+                AND hc.community_code = #{community.communityCode}
+            </if>
+        </where>
+    </select>
+
+</mapper>
