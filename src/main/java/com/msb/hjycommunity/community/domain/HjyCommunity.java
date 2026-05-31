@@ -1,6 +1,7 @@
 package com.msb.hjycommunity.community.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.msb.hjycommunity.common.core.domain.BaseEntity;
 import lombok.*;
@@ -8,6 +9,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName("hjy_community")
 public class HjyCommunity extends BaseEntity {
 
     private static final long serialVersionUID = -7077915223985668982L;

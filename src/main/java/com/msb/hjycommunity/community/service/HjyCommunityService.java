@@ -2,7 +2,6 @@ package com.msb.hjycommunity.community.service;
 
 import com.msb.hjycommunity.community.domain.HjyCommunity;
 import com.msb.hjycommunity.community.domain.dto.HjyCommunityDto;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,5 +13,7 @@ public interface HjyCommunityService {
      * @return
      */
     public List<HjyCommunityDto> queryList(HjyCommunity hjyCommunity);
+
+    Integer insertHjyCommunity(HjyCommunity hjyCommunity);
 
 }

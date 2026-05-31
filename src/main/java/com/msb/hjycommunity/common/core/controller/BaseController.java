@@ -2,6 +2,7 @@ package com.msb.hjycommunity.common.core.controller;
 
 import com.github.pagehelper.*;
 import com.msb.hjycommunity.common.constant.HttpStatus;
+import com.msb.hjycommunity.common.core.domain.BaseResponse;
 import com.msb.hjycommunity.common.core.page.*;
 import com.msb.hjycommunity.common.utils.ServletUtils;
 
@@ -50,5 +51,15 @@ public class BaseController {
         pageResult.setTotal(new PageInfo(list).getTotal());
 
         return pageResult;
+    }
+
+    /**
+     * 返回增删改影响行数的结果
+     */
+
+    protected BaseResponse toAjax(Integer rows){
+
+        return rows > 0 ? BaseResponse.success(rows) : BaseResponse.fail("操作失败");
+
     }
 }

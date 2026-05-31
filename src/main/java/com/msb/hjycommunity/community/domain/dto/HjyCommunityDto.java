@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.msb.hjycommunity.common.core.domain.BaseEntity;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,6 +24,8 @@ public class HjyCommunityDto extends BaseEntity {
 
     private String communityProvinceCode;
 
+    private String communityProvenceCode;
+
     //省名称
     private String communityProvinceName;
 
@@ -37,12 +41,20 @@ public class HjyCommunityDto extends BaseEntity {
 
     private String communityDetailAddress;
 
+    private String communityDetailedAddress;
+
     private String communityLongitude;
 
+    private String longitude;
+
     private String communityLatitude;
+
+    private String latitude;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long deptId;
 
     private Integer communitySort;
+
+    private List<Integer> selected;
 }
