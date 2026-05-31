@@ -8,7 +8,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class HjyCommunityServiceImpl implements HjyCommunityService {
@@ -32,5 +32,21 @@ public class HjyCommunityServiceImpl implements HjyCommunityService {
 
         return hjyCommunityMapper.insert(hjyCommunity);
     }
+
+    @Override
+    public HjyCommunity selectHjyCommunityById(Long communityId) {
+        return hjyCommunityMapper.selectById(communityId);
+    }
+
+    @Override
+    public Integer edit(HjyCommunity hjyCommunity) {
+        return hjyCommunityMapper.updateById(hjyCommunity);
+    }
+
+    @Override
+    public Integer deleteHjyCommunity(Long[] communityId) {
+        return hjyCommunityMapper.deleteBatchIds(Arrays.asList(communityId));
+    }
+
 
 }

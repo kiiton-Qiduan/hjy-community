@@ -15,6 +15,7 @@ public interface HjyCommunityMapper extends BaseMapper<HjyCommunity> {
      * @param hjyCommunity
      * @return
      */
-    public List<HjyCommunityDto> queryList(@Param("community") HjyCommunity hjyCommunity);
+    List<HjyCommunityDto> queryList(@Param("community") HjyCommunity hjyCommunity);
+
 
 }

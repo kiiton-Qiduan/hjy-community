@@ -6,6 +6,7 @@ import com.msb.hjycommunity.common.core.page.PageResult;
 import com.msb.hjycommunity.community.domain.HjyCommunity;
 import com.msb.hjycommunity.community.domain.dto.HjyCommunityDto;
 import com.msb.hjycommunity.community.service.HjyCommunityService;
+import org.aspectj.weaver.loadtime.Aj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,4 +33,18 @@ public class HjyCommunityController extends BaseController {
         return toAjax(hjyCommunityService.insertHjyCommunity(hjyCommunity));
     }
 
+    @GetMapping("/{communityId}")
+    public BaseResponse getInfo(@PathVariable("communityId") Long communityId){
+        return BaseResponse.success(hjyCommunityService.selectHjyCommunityById(communityId));
+    }
+
+    @PutMapping
+    private BaseResponse edit(@RequestBody HjyCommunity hjyCommunity){
+        return toAjax(hjyCommunityService.edit(hjyCommunity));
+    }
+
+    @DeleteMapping("/{communityIds}")
+    private BaseResponse delete(@PathVariable Long[] communityIds){
+        return toAjax(hjyCommunityService.deleteHjyCommunity(communityIds));
+    }
 }

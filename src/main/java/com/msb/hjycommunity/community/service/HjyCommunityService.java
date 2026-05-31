@@ -16,4 +16,9 @@ public interface HjyCommunityService {
 
     Integer insertHjyCommunity(HjyCommunity hjyCommunity);
 
+    HjyCommunity selectHjyCommunityById(Long communityId);
+
+    Integer edit(HjyCommunity hjyCommunity);
+
+    Integer deleteHjyCommunity(Long[] communityId);
 }

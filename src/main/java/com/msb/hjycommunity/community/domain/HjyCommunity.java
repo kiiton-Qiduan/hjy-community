@@ -28,7 +28,7 @@ public class HjyCommunity extends BaseEntity {
 
     private String communityTownCode;
 
-    private String communityDetailAddress;
+    private String communityDetailedAddress;
 
     private String communityLongitude;
 
