@@ -23,7 +23,7 @@ public class BaseController {
     public static PageDomain getPageDomain(){
         PageDomain pageDomain = new PageDomain();
         pageDomain.setPageNum(ServletUtils.getParameterToInt(PAGE_NUM));
-        pageDomain.setPageNum(ServletUtils.getParameterToInt(PAGE_SIZE));
+        pageDomain.setPageSize(ServletUtils.getParameterToInt(PAGE_SIZE));
 
         return pageDomain;
     }

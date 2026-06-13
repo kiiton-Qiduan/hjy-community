@@ -26,7 +26,7 @@ public class HjyCommunityDto extends BaseEntity {
 
     private String communityProvenceCode;
 
-    //省名称
+     //省名称
     private String communityProvinceName;
 
     private String communityCityCode;

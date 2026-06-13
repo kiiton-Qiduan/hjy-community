@@ -60,7 +60,8 @@ public class ServletUtils {
      */
     public static Integer getParameterToInt(String name)
     {
-        return Integer.parseInt(getRequest().getParameter(name));
+        String value = getRequest().getParameter(name);
+        return value == null || value.trim().isEmpty() ? null : Integer.parseInt(value);
     }
 
     /**
