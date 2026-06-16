@@ -13,14 +13,17 @@ public class BaseResponse<T> implements Serializable {
 
     private Integer code;
 
-    private String message;
+    private String msg;
 
     private T data;
+
+    private boolean success;
 
     public static <T> BaseResponse<T> success(T data){
         BaseResponse<T> response = new BaseResponse<>();
         response.setCode(ResultCode.SUCCESS.getCode());
-        response.setMessage(ResultCode.SUCCESS.getMessage());
+        response.setMsg(ResultCode.SUCCESS.getMessage());
+        response.setSuccess(true);
         response.setData(data);
 
         return response;
@@ -29,7 +32,7 @@ public class BaseResponse<T> implements Serializable {
     public static <T> BaseResponse<T> fail(String message){
         BaseResponse<T> response = new BaseResponse<>();
         response.setCode(ResultCode.ERROR.getCode());
-        response.setMessage(message);
+        response.setMsg(message);
 
         return response;
     }
@@ -37,8 +40,17 @@ public class BaseResponse<T> implements Serializable {
     public static <T> BaseResponse<T> fail(Integer code,String message){
         BaseResponse<T> response = new BaseResponse<>();
         response.setCode(code);
-        response.setMessage(message);
+        response.setMsg(message);
 
+        return response;
+    }
+
+    public static <T> BaseResponse<T> fail(String code, String message,boolean success){
+
+        BaseResponse<T> response = new BaseResponse<>();
+        response.setCode(Integer.parseInt(code));
+        response.setMsg(message);
+        response.setSuccess(success);
         return response;
     }
 }
